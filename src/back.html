@@ -1,0 +1,139 @@
+{{ FrontSide }}
+
+<hr />
+
+<div lang="ja" class="container back">
+    <div id="word-reading">{{ Word Reading }}</div>
+
+    {{ #Pitch }}
+    <div id="pitch">{{ Pitch }}</div>
+
+    <details class="pitch-details">
+        <summary></summary>
+        <div id="pitch-position">{{ Pitch Position }}</div>
+        <div id="pitch-categories">{{ Pitch Categories }}</div>
+    </details>
+    {{ /Pitch }}
+
+    {{ #Frequency Sorting }}
+    <div class="header">
+        <div id="frequency-sorting">{{ Frequency Sorting }}</div>
+
+        {{ #Frequency }}
+        <div id="frequency">{{ Frequency }}</div>
+        {{ /Frequency }}
+    </div>
+    {{ /Frequency Sorting }}
+
+    <div class="card">
+        <div id="definition">{{ Definition }}</div>
+        <div id="definition-glossary">{{ Definition Glossary }}</div>
+
+        {{ #Word Audio }}
+        <div id="word-audio" class="card-audio">{{ Word Audio }}</div>
+        {{ /Word Audio }}
+
+        {{ #Definition Media }}
+        <div id="definition-media" class="card-media">{{ Definition Media }}</div>
+        {{ /Definition Media }}
+    </div>
+
+    <div class="glossary-control">
+        <button class="glossary-toggle">Glossary</button>
+    </div>
+
+    {{ #Sentence }}
+    <div class="card">
+        <div id="sentence">{{ Sentence }}</div>
+
+        {{ #Sentence Audio }}
+        <div id="sentence-audio" class="card-audio">{{ Sentence Audio }}</div>
+        {{ /Sentence Audio }}
+
+        {{ #Sentence Media }}
+        <div id="sentence-media" class="card-media">{{ Sentence Media }}</div>
+        {{ /Sentence Media }}
+
+        {{ #Metadata }}
+        <div id="metadata">{{ Metadata }}</div>
+        {{ /Metadata }}
+    </div>
+    {{ /Sentence }}
+
+    {{ #Notes }}
+    <div id="notes">{{ Notes }}</div>
+    {{ /Notes }}
+</div>
+
+<script>
+    (() => {
+        const $ = document.querySelector.bind(document);
+
+        const toggle = (e, display = "block") => ($(e).style.display = $(e).style.display == "none" ? display : "none");
+        const format = (e, ...replace) => {
+            const elm = $(e);
+
+            if (elm != null) {
+                for (const r of replace) {
+                    elm.innerHTML = elm.innerHTML.replaceAll(r[0], r[1]);
+                }
+            }
+        };
+
+        /* Remove Empty */
+        if ($("#pitch-position").innerHTML == "" && $("#pitch-categories").innerHTML == "") {
+            $(".pitch-details").remove();
+        }
+
+        if ($("#sentence").innerText == $("#word").innerText || $("#sentence").innerText == $("#word-reading").innerText) {
+            $("#sentence").remove();
+        }
+
+        if ($("#word").innerText == $("#word-reading").innerText) {
+            $("#word-reading").remove();
+        }
+
+        /* Glossary */
+        const dict = $("#definition").querySelector("[data-dictionary]")?.getAttribute("data-dictionary");
+
+        $("#definition-glossary")
+            .querySelectorAll(`[data-dictionary="${dict}"]`)
+            .forEach((e) => e.remove());
+
+        // Glossary toggle
+        if ($("#definition").innerText == "") {
+            $("#definition").remove();
+            $(".glossary-toggle").remove();
+        } else if ($("#definition-glossary").innerText == "") {
+            $("#definition-glossary").remove();
+            $(".glossary-toggle").remove();
+        } else {
+            $(".glossary-toggle").onclick = () => {
+                toggle("#definition");
+                toggle("#definition-glossary");
+
+                $(".glossary-toggle").innerText = $("#definition").style.display == "none" ? "Definition" : "Glossary";
+            };
+
+            $("#definition-glossary").style.display = "none";
+        }
+
+        /* Formatting */
+        // Sentence
+        format("#sentence", [
+            $("#word").innerText,
+            `<span class=\"highlighted\">${$("#word").innerText}</span>`
+        ]);
+
+        format("#sentence", [
+            $("#word-reading").innerText,
+            `<span class=\"highlighted\">${$("#word-reading").innerText}</span>`
+        ]);
+
+        // Dictionary Specific
+        format("#pitch", ["<br>", " "], ["<ol>", ""], ["<li>", " "]);
+        format("#pitch-position", ["<ol>", ""], ["<li>", " "], ["[", "[ "], ["]", " ]"]);
+        format("#pitch-categories", [",", ", "]);
+    })();
+</script>
+
