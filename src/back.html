@@ -32,10 +32,6 @@
         {{ #Word Audio }}
         <div id="word-audio" class="card-audio">{{ Word Audio }}</div>
         {{ /Word Audio }}
-
-        {{ #Definition Media }}
-        <div id="definition-media" class="card-media">{{ Definition Media }}</div>
-        {{ /Definition Media }}
     </div>
 
     <div class="glossary-control">
@@ -44,8 +40,6 @@
 
     {{ #Sentence }}
     <div class="card">
-        <div id="sentence">{{ Sentence }}</div>
-
         {{ #Sentence Audio }}
         <div id="sentence-audio" class="card-audio">{{ Sentence Audio }}</div>
         {{ /Sentence Audio }}
@@ -53,6 +47,8 @@
         {{ #Sentence Media }}
         <div id="sentence-media" class="card-media">{{ Sentence Media }}</div>
         {{ /Sentence Media }}
+
+        <div id="sentence">{{ Sentence }}</div>
 
         {{ #Metadata }}
         <div id="metadata">{{ Metadata }}</div>
@@ -81,13 +77,17 @@
         };
 
         /* Remove Empty */
+        {{ #Pitch }}
         if ($("#pitch-position").innerHTML == "" && $("#pitch-categories").innerHTML == "") {
             $(".pitch-details").remove();
         }
+        {{ /Pitch }}
 
+        {{ #Sentence }}
         if ($("#sentence").innerText == $("#word").innerText || $("#sentence").innerText == $("#word-reading").innerText) {
             $("#sentence").remove();
         }
+        {{ /Sentence }}
 
         if ($("#word").innerText == $("#word-reading").innerText) {
             $("#word-reading").remove();
@@ -126,8 +126,8 @@
         ]);
 
         format("#sentence", [
-            $("#word-reading").innerText,
-            `<span class=\"highlighted\">${$("#word-reading").innerText}</span>`
+            $("#word-reading")?.innerText || "",
+            `<span class=\"highlighted\">${$("#word-reading")?.innerText || ""}</span>`
         ]);
 
         // Dictionary Specific
@@ -136,4 +136,3 @@
         format("#pitch-categories", [",", ", "]);
     })();
 </script>
-

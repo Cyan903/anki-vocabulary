@@ -1,104 +1,190 @@
-.container {
-    font-family:
-        "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ",
-        Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "MS UI Gothic", Mincho,
-        sans-serif;
+:root {
+    /* Colors */
+    --red: #fd5c5c;
+    --blue: #89daff;
+    --orange: #fca311;
+    --green: #4e937a;
+    --purple: #afa2ff;
 
+    --primary: var(--red);
+    --background: transparent;
+
+    /* Fonts */
+    --primary-font: "ヒラギノ角ゴ Pro W3";
+    --secondary-font: "Hiragino Kaku Gothic Pro";
+}
+
+.container {
+    font-family: var(--font), var(--secondary-font), Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "MS UI Gothic", Mincho, sans-serif;
     text-align: center;
     font-size: 20px;
+    max-width: 1200px;
+    margin: auto;
 }
 
-.front,
-.back {
+/* Header */
+.header {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    font-size: 0.8em;
 }
 
+.header:hover #frequency {
+    display: block;
+}
+
+.header:hover #frequency-sorting {
+    opacity: 1;
+}
+
+/* Pitch */
+.pitch-details {
+    margin-bottom: 5px;
+}
+
+/* Card */
 .card {
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 5px 10px;
-    margin: 25px auto;
-    border-radius: 5px;
-    text-align: left;
-
-    max-width: max(max(50vw, 50vh), 500px);
-    max-height: 80vh;
-    overflow-y: scroll;
-
+    padding: 5px;
+    margin: 5px;
+    max-height: 700px;
+    overflow: scroll;
     position: relative;
+    background-color: var(--background);
+    border-radius: 5px;
 }
 
 .card-audio {
     position: absolute;
-    right: 5px;
-    top: 5px;
     transform: scale(0.5);
+    z-index: 1;
 }
 
-.header {
-    position: absolute;
-    top: 5px;
-    left: 5px;
+.card-media {
+    width: 400px;
+    margin: auto;
+}
+
+.glossary-control {
+    text-align: right;
+    margin-bottom: 25px;
+}
+
+/* Sentence */
+.highlighted {
+    color: var(--primary);
 }
 
 /* Elements */
 #word {
-    font-size: 50px;
+    font-size: 70px;
 }
 
 #word-reading {
     font-size: 50px;
-}
-
-#word-audio {
+    margin-bottom: 15px;
 }
 
 #word-hint {
-    font-size: 0.4em;
+    font-size: 0.8em;
     opacity: 0.6;
 }
 
-#definition {
-}
-
-#definition-glossary {
-}
-
-#definition-media {
-}
-
 #sentence {
-}
-
-#sentence-audio {
+    font-size: 20px;
 }
 
 #sentence-media {
+    margin-bottom: 25px;
 }
 
-#pitch {
-}
-
-#pitch-position {
-}
-
-#pitch-categories {
+#pitch-categories,
+#notes {
+    font-style: italic;
+    font-size: 0.8em;
 }
 
 #frequency {
     display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 5px;
+    color: #FFF;
+    width: 250px;
 }
 
-#frequency-sorting {
-    opacity: 0.8;
+#frequency-sorting,
+#metadata {
+    opacity: 0.2;
     font-size: 0.8em;
 }
 
-#metadata {
+/* Responseive */
+@media screen and (max-width: 500px) {
+    .card-media {
+        width: 80vw;
+    }
+
+    .card-audio {
+        left: 5px;
+        bottom: 5px;
+    }
 }
 
-#notes {
+@media screen and (min-width: 500px) {
+    .card-audio {
+        right: 5px;
+        top: 5px;
+    }
+}
+
+/* Mobile */
+.mobile .front #word,
+.android .front #word {
+    font-size: 50px;
+}
+
+.mobile .back #word-reading,
+.android .back #word-reading {
+    font-size: 30px;
+}
+
+.mobile .back .card,
+.android .back .card {
+    max-height: none;
+    overflow: visible;
+}
+
+.mobile .back button,
+.android .back button {
+    background: inherit;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    font-weight: bolder;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.mobile .back button:hover,
+.android .back button:hover {
+    opacity: 0.8;
+}
+
+.mobile .back button:active,
+.android .back button:active {
+    color: inherit;
+    background-color: var(--primary);
+    opacity: 1;
+}
+
+.mobile .card-audio,
+.android .card-audio {
+    transform: scale(1);
+    opacity: 0.4;
 }
 
 /* Dictionary Specific */
 [data-sc-content="example-sentence"] {
     font-size: 10px;
 }
+
