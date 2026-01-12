@@ -24,6 +24,7 @@
 
 /* Header */
 .header {
+    display: flex;
     position: absolute;
     top: 4px;
     left: 4px;
@@ -32,10 +33,18 @@
 
 .header:hover #frequency {
     display: block;
+    top: 1em;
 }
 
+.header:hover svg,
 .header:hover #frequency-sorting {
     opacity: 1;
+}
+
+.header svg {
+    height: 1em;
+    opacity: 0.2;
+    margin-right: 4px;
 }
 
 /* Pitch */
@@ -48,10 +57,12 @@
     padding: 5px;
     margin: 5px;
     max-height: 700px;
-    overflow: scroll;
     position: relative;
     background-color: var(--background);
     border-radius: 5px;
+
+    /* Fix for some dictionaries */
+    overflow: scroll !important;
 }
 
 .card-audio {
@@ -109,7 +120,7 @@
     position: absolute;
     background-color: rgba(0, 0, 0, 0.9);
     border-radius: 5px;
-    color: #FFF;
+    color: #fff;
     width: 250px;
 }
 
@@ -187,4 +198,3 @@
 [data-sc-content="example-sentence"] {
     font-size: 10px;
 }
-

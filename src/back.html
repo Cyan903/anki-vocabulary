@@ -17,6 +17,13 @@
 
     {{ #Frequency Sorting }}
     <div class="header">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <rect width="48" height="48" fill="white" fill-opacity="0.01" />
+            <rect x="4" y="18" width="13" height="24" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            <rect x="17" y="6" width="13" height="36" stroke="#FFF" stroke-width="4" stroke-linejoin="round" />
+            <rect x="30" y="26" width="13" height="16" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+
         <div id="frequency-sorting">{{ Frequency Sorting }}</div>
 
         {{ #Frequency }}
@@ -62,21 +69,26 @@
 </div>
 
 <script>
-    (() => {
-        const $ = document.querySelector.bind(document);
+    function $(s) {
+        return document.querySelector(s);
+    }
 
-        const toggle = (e, display = "block") => ($(e).style.display = $(e).style.display == "none" ? display : "none");
-        const format = (e, ...replace) => {
-            const elm = $(e);
+    function toggle(e, display = "block") {
+        $(e).style.display = $(e).style.display == "none" ? display : "none";
+    }
 
-            if (elm != null) {
-                for (const r of replace) {
-                    elm.innerHTML = elm.innerHTML.replaceAll(r[0], r[1]);
-                }
+    function format(e, ...replace) {
+        const elm = $(e);
+
+        if (elm != null) {
+            for (const r of replace) {
+                elm.innerHTML = elm.innerHTML.replaceAll(r[0], r[1]);
             }
-        };
+        }
+    };
 
-        /* Remove Empty */
+    // MARK: Remove Empty
+    (() => {
         {{ #Pitch }}
         if ($("#pitch-position").innerHTML == "" && $("#pitch-categories").innerHTML == "") {
             $(".pitch-details").remove();
@@ -92,8 +104,10 @@
         if ($("#word").innerText == $("#word-reading").innerText) {
             $("#word-reading").remove();
         }
+    })();
 
-        /* Glossary */
+    // MARK: Glossary
+    (() => {
         const dict = $("#definition").querySelector("[data-dictionary]")?.getAttribute("data-dictionary");
 
         $("#definition-glossary")
@@ -118,7 +132,10 @@
             $("#definition-glossary").style.display = "none";
         }
 
-        /* Formatting */
+    })();
+
+    // MARK: Formatting
+    (() => {
         // Sentence
         format("#sentence", [
             $("#word").innerText,
@@ -130,7 +147,7 @@
             `<span class=\"highlighted\">${$("#word-reading")?.innerText || ""}</span>`
         ]);
 
-        // Dictionary Specific
+        // Dictionary specific
         format("#pitch", ["<br>", " "], ["<ol>", ""], ["<li>", " "]);
         format("#pitch-position", ["<ol>", ""], ["<li>", " "], ["[", "[ "], ["]", " ]"]);
         format("#pitch-categories", [",", ", "]);
