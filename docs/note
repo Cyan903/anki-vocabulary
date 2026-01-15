@@ -1,6 +1,7 @@
 Name: Japanese Vocabulary
+Card Name: Vocabulary
 Sort by this field in the browser: Word
-Collapse by default: Definition Glossary, Pitch Position, Pitch Categories
+Collapse by default: Definition Glossary, Sentence Target, Pitch Position, Pitch Categories
 Editing Font: Noto Sans
 Editing Size: 50 for Word, 20 for All
 
@@ -13,6 +14,7 @@ Definition
 Definition Glossary
 
 Sentence
+Sentence Target
 Sentence Audio
 Sentence Media
 

@@ -136,20 +136,19 @@
 
     // MARK: Formatting
     (() => {
+        {{ #Sentence Target }}
         // Sentence
         format("#sentence", [
-            $("#word").innerText,
-            `<span class=\"highlighted\">${$("#word").innerText}</span>`
+            `{{ Sentence Target }}`,
+            `<span class=\"highlighted\">${`{{ Sentence Target }}`}</span>`
         ]);
+        {{ /Sentence Target }}
 
-        format("#sentence", [
-            $("#word-reading")?.innerText || "",
-            `<span class=\"highlighted\">${$("#word-reading")?.innerText || ""}</span>`
-        ]);
-
+        {{ #Pitch }}
         // Dictionary specific
         format("#pitch", ["<br>", " "], ["<ol>", ""], ["<li>", " "]);
         format("#pitch-position", ["<ol>", ""], ["<li>", " "], ["[", "[ "], ["]", " ]"]);
         format("#pitch-categories", [",", ", "]);
+        {{ /Pitch }}
     })();
 </script>
