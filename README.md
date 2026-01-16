@@ -7,25 +7,25 @@ My personal note type for [Anki](https://apps.ankiweb.net/). Inspired by [Crop T
 
 ## Setup
 
-| Anki Field          | Yomitan                     | Jidoujisho                                                                 |
-|---------------------|-----------------------------|----------------------------------------------------------------------------|
-| Word                | {expression}                | Term                                                                       |
-| Word Reading        | {reading}                   | Reading                                                                    |
-| Word Audio          | {audio}                     | Term Audio                                                                 |
-| Word Hint           | *Empty*                     | *Empty*                                                                    |
-| Definition          | {single-glossary-[dict]}    | *Not supported, see [backfill-jidoujisho-to-yomitan](presets/backfill-jidoujisho-to-yomitan.json)* |
-| Definition Glossary | {glossary}                  | Definition                                                                 |
-| Sentence            | {sentence}                  | Sentence                                                                   |
-| Sentence Target     | {search-query}              | Cloze Inside                                                               |
-| Sentence Audio      | *Empty*                     | Sentence Audio                                                             |
-| Sentence Media      | *Empty*                     | Image                                                                      |
-| Pitch               | {pitch-accent-graphs-jj}    | Pitch Accent                                                               |
-| Pitch Position      | {pitch-accent-positions}    | *Not supported, see [backfill-pitch](presets/backfill-pitch.json)*        |
-| Pitch Categories    | {pitch-accent-categories}   | *Not supported, see [backfill-pitch](presets/backfill-pitch.json)*        |
-| Frequency           | {frequencies}               | *Not supported, see [backfill-frequencies](presets/backfill-frequencies.json)* |
-| Frequency Sorting   | {frequency-harmonic-rank}   | *Not supported, see [backfill-frequencies](presets/backfill-frequencies.json)* |
-| Metadata            | {document-title}            | Context                                                                    |
-| Notes               | *Empty*                     | *Empty*                                                                    |
+| Anki Field          | Yomitan                   | Jidoujisho                                                                                         |
+|---------------------|---------------------------|----------------------------------------------------------------------------------------------------|
+| Word                | {expression}              | Term                                                                                               |
+| Word Reading        | {reading}                 | Reading                                                                                            |
+| Word Audio          | {audio}                   | Term Audio                                                                                         |
+| Word Hint           | *Empty*                   | *Empty*                                                                                            |
+| Definition          | {single-glossary-[dict]}  | *Not supported, see [backfill-jidoujisho-to-yomitan](presets/backfill-jidoujisho-to-yomitan.json)* |
+| Definition Glossary | {glossary}                | Definition                                                                                         |
+| Sentence            | {sentence}                | Sentence                                                                                           |
+| Sentence Target     | {search-query}            | Cloze Inside                                                                                       |
+| Sentence Audio      | *Empty*                   | Sentence Audio                                                                                     |
+| Sentence Media      | *Empty*                   | Image                                                                                              |
+| Pitch               | {pitch-accent-graphs-jj}  | Pitch Accent                                                                                       |
+| Pitch Position      | {pitch-accent-positions}  | *Not supported, see [backfill-pitch](presets/backfill-pitch.json)*                                 |
+| Pitch Categories    | {pitch-accent-categories} | *Not supported, see [backfill-pitch](presets/backfill-pitch.json)*                                 |
+| Frequency           | {frequencies}             | *Not supported, see [backfill-frequencies](presets/backfill-frequencies.json)*                     |
+| Frequency Sorting   | {frequency-harmonic-rank} | Frequency                                                                                          |
+| Metadata            | {document-title}          | Context                                                                                            |
+| Notes               | *Empty*                   | *Empty*                                                                                            |
 
 ## Preview
 
