@@ -33,7 +33,7 @@ My personal note type for [Anki](https://apps.ankiweb.net/). Inspired by [Crop T
 - [Mobile](docs/mobile.png)
 - [Card Format](docs/README.md)
 
-# License
+## License
 
 [MIT](MIT)
 
