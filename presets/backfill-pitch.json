@@ -1,0 +1,19 @@
+{
+    "targets": {
+        "Pitch": {
+            "handlebar": "{pitch-accent-graphs-jj}",
+            "replace": true
+        },
+
+        "Pitch Position": {
+            "handlebar": "{pitch-accent-positions}",
+            "replace": true
+        },
+
+        "Pitch Categories": {
+            "handlebar": "{pitch-accent-categories}",
+            "replace": true
+        }
+    }
+}
+

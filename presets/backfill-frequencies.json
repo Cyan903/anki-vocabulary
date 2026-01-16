@@ -1,0 +1,14 @@
+{
+    "targets": {
+        "Frequency": {
+            "handlebar": "{frequencies}",
+            "replace": true
+        },
+
+        "Frequency Sorting": {
+            "handlebar": "{frequency-harmonic-rank}",
+            "replace": true
+        }
+    }
+}
+
