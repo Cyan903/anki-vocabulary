@@ -4,7 +4,6 @@
 
 My personal note type for [Anki](https://apps.ankiweb.net/). Inspired by [Crop Theft Vocab](https://github.com/Kuuuube/crop-theft). Very opinionated and made for my own use.
 
-
 ## Setup
 
 | Anki Field          | Yomitan                   | Jidoujisho                                                                                         |
