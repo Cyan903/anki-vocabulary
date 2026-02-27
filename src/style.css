@@ -112,10 +112,7 @@
 #definition,
 #definition-glossary {
     text-align: left;
-    max-height: 700px;
-
-    /* Fix for some dictionaries */
-    overflow: scroll !important;
+    overflow-x: scroll !important;
 }
 
 #sentence {
@@ -172,6 +169,15 @@
 @media screen and (min-width: 500px) {
     .mobile-play {
         display: none;
+    }
+
+    #definition,
+    #definition-glossary {
+        text-align: left;
+
+        /* Fix for some dictionaries */
+        overflow: scroll !important;
+        max-height: 700px;
     }
 }
 
