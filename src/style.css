@@ -7,6 +7,7 @@
     --purple: #afa2ff;
 
     --primary: var(--red);
+    --secondary: var(--blue);
     --background: transparent;
 
     /* Fonts */
@@ -20,6 +21,10 @@
     font-size: 20px;
     max-width: 1200px;
     margin: auto;
+}
+
+.front {
+    margin-top: 1em;
 }
 
 /* Header */
@@ -56,17 +61,15 @@
 .card {
     padding: 5px;
     margin: 5px;
-    max-height: 700px;
     position: relative;
     background-color: var(--background);
     border-radius: 5px;
-
-    /* Fix for some dictionaries */
-    overflow: scroll !important;
 }
 
 .card-audio {
     position: absolute;
+    right: 5px;
+    top: 5px;
     transform: scale(0.5);
     z-index: 1;
 }
@@ -76,9 +79,14 @@
     margin: auto;
 }
 
-.glossary-control {
+/* Control */
+.center-control {
     text-align: right;
-    margin-bottom: 25px;
+    background-color: transparent !important;
+}
+
+.center-control > button {
+    border-radius: 5px;
 }
 
 /* Sentence */
@@ -101,12 +109,21 @@
     opacity: 0.6;
 }
 
+#definition,
+#definition-glossary {
+    text-align: left;
+    max-height: 700px;
+
+    /* Fix for some dictionaries */
+    overflow: scroll !important;
+}
+
 #sentence {
     font-size: 20px;
 }
 
 #sentence-media {
-    margin-bottom: 25px;
+    margin: 25px auto;
 }
 
 #pitch-categories,
@@ -133,19 +150,28 @@
 /* Responseive */
 @media screen and (max-width: 500px) {
     .card-media {
-        width: 80vw;
+        width: 80%;
+        margin: auto;
     }
 
     .card-audio {
-        left: 5px;
-        bottom: 5px;
+        display: none;
+    }
+
+    .center-control {
+        display: block;
+    }
+
+    .center-control > button {
+        display: block;
+        width: 80%;
+        margin: 10px auto;
     }
 }
 
 @media screen and (min-width: 500px) {
-    .card-audio {
-        right: 5px;
-        top: 5px;
+    .mobile-play {
+        display: none;
     }
 }
 
@@ -172,8 +198,13 @@
     border: 1px solid var(--primary);
     color: var(--primary);
     font-weight: bolder;
-    padding: 15px;
-    border-radius: 5px;
+    padding: 10px;
+}
+
+.mobile .back .mobile-play,
+.android .back .mobile-play {
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
 }
 
 .mobile .back button:hover,
@@ -188,13 +219,15 @@
     opacity: 1;
 }
 
-.mobile .card-audio,
-.android .card-audio {
-    transform: scale(1);
-    opacity: 0.4;
+.mobile .back .mobile-play:active,
+.android .back .mobile-play:active {
+    color: inherit;
+    background-color: var(--secondary);
+    opacity: 1;
 }
 
-/* Dictionary Specific */
-[data-sc-content="example-sentence"] {
-    font-size: 10px;
+.mobile .card-audio,
+.android .card-audio {
+    transform: scale(0.6);
+    opacity: 0.8;
 }

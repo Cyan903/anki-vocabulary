@@ -41,7 +41,15 @@
         {{ /Word Audio }}
     </div>
 
-    <div class="glossary-control">
+    <div class="card center-control">
+        {{ #Word Audio }}
+        <button class="mobile-play word-audio-mobile">Word Audio</button>
+        {{ /Word Audio }}
+
+        {{ #Sentence Audio }}
+        <button class="mobile-play sentence-audio-mobile">Sentence Audio</button>
+        {{ /Sentence Audio }}
+
         <button class="glossary-toggle">Glossary</button>
     </div>
 
@@ -85,7 +93,7 @@
                 elm.innerHTML = elm.innerHTML.replaceAll(r[0], r[1]);
             }
         }
-    };
+    }
 
     // MARK: Remove Empty
     (() => {
@@ -134,18 +142,29 @@
 
     })();
 
+    // MARK: Audio
+    (() => {
+        {{ #Word Audio }}
+        $(".word-audio-mobile").onclick = () => $("#word-audio > a").click();
+        {{ /Word Audio }}
+
+        {{ #Sentence Audio }}
+        $(".sentence-audio-mobile").onclick = () => $("#sentence-audio > a").click();
+        {{ /Sentence Audio }}
+    })();
+
     // MARK: Formatting
     (() => {
-        {{ #Sentence Target }}
         // Sentence
+        {{ #Sentence Target }}
         format("#sentence", [
             `{{ Sentence Target }}`,
             `<span class=\"highlighted\">${`{{ Sentence Target }}`}</span>`
         ]);
         {{ /Sentence Target }}
 
-        {{ #Pitch }}
         // Dictionary specific
+        {{ #Pitch }}
         format("#pitch", ["<br>", " "], ["<ol>", ""], ["<li>", " "]);
         format("#pitch-position", ["<ol>", ""], ["<li>", " "], ["[", "[ "], ["]", " ]"]);
         format("#pitch-categories", [",", ", "]);
