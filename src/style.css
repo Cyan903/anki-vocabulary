@@ -16,7 +16,7 @@
 }
 
 .container {
-    font-family: var(--font), var(--secondary-font), Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "MS UI Gothic", Mincho, sans-serif;
+    font-family: var(--primary-font), var(--secondary-font), Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "MS UI Gothic", Mincho, sans-serif;
     text-align: center;
     font-size: 20px;
     max-width: 1200px;
