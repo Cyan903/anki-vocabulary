@@ -1,0 +1,17 @@
+<!-- Modification: Katakana -->
+<script>
+    function katakana(str) {
+        return str.replace(/[\u3041-\u3096]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
+    }
+
+    // MARK: Katakana
+    (() => {
+        {{ #Pitch }}
+        $("#pitch").innerHTML = katakana($("#pitch").innerHTML);
+        {{ /Pitch }}
+
+        {{ #Word Reading }}
+        $("#word-reading").innerHTML = katakana($("#word-reading").innerHTML);
+        {{ /Word Reading }}
+    })();
+</script>
