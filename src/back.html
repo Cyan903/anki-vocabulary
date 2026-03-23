@@ -32,16 +32,16 @@
     </div>
     {{ /Frequency Sorting }}
 
-    <div class="card">
+    <div class="vocab-card">
         <div id="definition">{{ Definition }}</div>
         <div id="definition-glossary">{{ Definition Glossary }}</div>
 
         {{ #Word Audio }}
-        <div id="word-audio" class="card-audio">{{ Word Audio }}</div>
+        <div id="word-audio" class="vocab-card-audio">{{ Word Audio }}</div>
         {{ /Word Audio }}
     </div>
 
-    <div class="card center-control">
+    <div class="vocab-card center-control">
         {{ #Word Audio }}
         <button class="mobile-play word-audio-mobile">Word Audio</button>
         {{ /Word Audio }}
@@ -54,13 +54,13 @@
     </div>
 
     {{ #Sentence }}
-    <div class="card">
+    <div class="vocab-card">
         {{ #Sentence Audio }}
-        <div id="sentence-audio" class="card-audio">{{ Sentence Audio }}</div>
+        <div id="sentence-audio" class="vocab-card-audio">{{ Sentence Audio }}</div>
         {{ /Sentence Audio }}
 
         {{ #Sentence Media }}
-        <div id="sentence-media" class="card-media">{{ Sentence Media }}</div>
+        <div id="sentence-media" class="vocab-card-media">{{ Sentence Media }}</div>
         {{ /Sentence Media }}
 
         <div id="sentence">{{ Sentence }}</div>
@@ -139,7 +139,6 @@
 
             $("#definition-glossary").style.display = "none";
         }
-
     })();
 
     // MARK: Audio

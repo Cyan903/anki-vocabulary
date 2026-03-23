@@ -58,7 +58,7 @@
 }
 
 /* Card */
-.card {
+.vocab-card {
     padding: 5px;
     margin: 5px;
     position: relative;
@@ -66,7 +66,7 @@
     border-radius: 5px;
 }
 
-.card-audio {
+.vocab-card-audio {
     position: absolute;
     right: 5px;
     top: 5px;
@@ -74,7 +74,7 @@
     z-index: 1;
 }
 
-.card-media {
+.vocab-card-media {
     width: 400px;
     margin: auto;
 }
@@ -146,12 +146,12 @@
 
 /* Responseive */
 @media screen and (max-width: 500px) {
-    .card-media {
+    .vocab-card-media {
         width: 80%;
         margin: auto;
     }
 
-    .card-audio {
+    .vocab-card-audio {
         display: none;
     }
 
@@ -192,8 +192,8 @@
     font-size: 30px;
 }
 
-.mobile .back .card,
-.android .back .card {
+.mobile .back .vocab-card,
+.android .back .vocab-card {
     max-height: none;
     overflow: visible;
 }
@@ -232,8 +232,8 @@
     opacity: 1;
 }
 
-.mobile .card-audio,
-.android .card-audio {
+.mobile .vocab-card-audio,
+.android .vocab-card-audio {
     transform: scale(0.6);
     opacity: 0.8;
 }
