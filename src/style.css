@@ -46,9 +46,9 @@
     opacity: 1;
 }
 
-.header svg {
+.frequency-icon {
     height: 1em;
-    opacity: 0.2;
+    opacity: 0.4;
     margin-right: 4px;
 }
 
@@ -140,14 +140,8 @@
 
 #frequency-sorting,
 #metadata {
-    opacity: 0.2;
+    opacity: 0.4;
     font-size: 0.8em;
-}
-
-/* Dark Mode */
-.nightMode .frequency-icon,
-.nightMode .frequency-icon * {
-    stroke: #FFF;
 }
 
 /* Responseive */
@@ -242,4 +236,10 @@
 .android .vocab-card-audio {
     transform: scale(0.6);
     opacity: 0.8;
+}
+
+/* Dark Mode */
+.nightMode .frequency-icon,
+.nightMode .frequency-icon * {
+    stroke: #FFF;
 }
