@@ -132,7 +132,7 @@
 #frequency {
     display: none;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.95);
     border-radius: 5px;
     color: #fff;
     width: 250px;
@@ -200,36 +200,35 @@
 
 .mobile .back button,
 .android .back button {
-    background: inherit;
+    background: var(--primary);
     border: 1px solid var(--primary);
-    color: var(--primary);
+    color: #000;
     font-weight: bolder;
     padding: 10px;
 }
 
 .mobile .back .mobile-play,
 .android .back .mobile-play {
+    background: var(--secondary);
     border: 1px solid var(--secondary);
+}
+
+.mobile .back button:active,
+.android .back button:active {
+    background-color: transparent;
+    color: var(--primary);
+    opacity: 1 !important;
+}
+
+.mobile .back .mobile-play:active,
+.android .back .mobile-play:active {
+    background-color: transparent;
     color: var(--secondary);
 }
 
 .mobile .back button:hover,
 .android .back button:hover {
     opacity: 0.8;
-}
-
-.mobile .back button:active,
-.android .back button:active {
-    color: inherit;
-    background-color: var(--primary);
-    opacity: 1;
-}
-
-.mobile .back .mobile-play:active,
-.android .back .mobile-play:active {
-    color: inherit;
-    background-color: var(--secondary);
-    opacity: 1;
 }
 
 .mobile .vocab-card-audio,
@@ -242,4 +241,28 @@
 .nightMode .frequency-icon,
 .nightMode .frequency-icon * {
     stroke: #FFF;
+}
+
+.mobile .nightMode .back button,
+.android .nightMode .back button {
+    background: transparent;
+    color: var(--primary);
+}
+
+.mobile .nightMode .back .mobile-play,
+.android .nightMode .back .mobile-play {
+    background: transparent;
+    color: var(--secondary);
+}
+
+.mobile .nightMode .back button:active,
+.android .nightMode .back button:active {
+    background-color: var(--primary);
+    color: #000;
+}
+
+.mobile .nightMode .back .mobile-play:active,
+.android .nightMode .back .mobile-play:active {
+    background-color: var(--secondary);
+    color: #000;
 }
