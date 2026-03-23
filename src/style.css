@@ -144,6 +144,12 @@
     font-size: 0.8em;
 }
 
+/* Dark Mode */
+.nightMode .frequency-icon,
+.nightMode .frequency-icon * {
+    stroke: #FFF;
+}
+
 /* Responseive */
 @media screen and (max-width: 500px) {
     .vocab-card-media {
