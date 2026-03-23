@@ -205,6 +205,7 @@
     color: #000;
     font-weight: bolder;
     padding: 10px;
+    user-select: none;
 }
 
 .mobile .back .mobile-play,
