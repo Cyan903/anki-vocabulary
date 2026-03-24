@@ -52,7 +52,7 @@ diff -ur src/back.html modifications/kanji-database/back.html
 +
 +        try {
 +            const kdb = await loadKDB();
-+            const kanjis = word.replace(/[\u3040-\u309F\u30A0-\u30FF]/g, "").split("");
++            const kanjis = word.replace(/[\u3040-\u309F\u30A0-\u30FF]/g, "").split("").filter((e, i, s) => i === s.indexOf(e));
 +
 +            if (kanjis.length == 0) {
 +                container.remove();
