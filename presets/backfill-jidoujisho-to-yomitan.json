@@ -1,9 +1,0 @@
-{
-    "targets": {
-        "Definition Glossary": {
-            "handlebar": "{glossary}",
-            "replace": true
-        }
-    }
-}
-

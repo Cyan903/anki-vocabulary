@@ -1,0 +1,11 @@
+{
+	"type": "module",
+	"scripts": {
+		"start": "node src/index.js",
+		"download": "wget -P assets http://www.edrdg.org/kanjidic/kanjidic2.xml.gz && gunzip assets/kanjidic2.xml.gz"
+	},
+	"dependencies": {
+		"consola": "^3.4.2",
+		"fast-xml-parser": "^5.5.8"
+	}
+}

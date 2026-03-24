@@ -1,5 +1,7 @@
-examples/
+/node_modules
 
-modifications/*
-!/modifications/*.patch
-!/modifications/*.md
+/assets/*
+!/assets/.gitkeep
+
+/output/*
+!/output/.gitkeep
