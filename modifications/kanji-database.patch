@@ -80,7 +80,7 @@ diff -ur src/back.html modifications/kanji-database/back.html
 +                    .map((tag) => `<span>${tag}: ${data.tags[tag]}</span>`)
 +                    .join("");
 +
-+                container.insertAdjacentHTML("afterbegin", `
++                container.insertAdjacentHTML("beforeend", `
 +                    <div class="kdb-kanji">
 +                        <h1>${kanji}</h1>
 +                        <div class="kdb-content">
